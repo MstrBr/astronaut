@@ -9,18 +9,26 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             width: 100%;
+            height: 100%;
+            /* Add just enough padding to prevent animation clipping */
+            padding: 3vmin;
         }
         
         .space-float {
-            width: 40vmin;  /* responsive size based on viewport */
-            height: auto;   /* maintain aspect ratio */
-            max-width: 500px; /* maximum size cap */
+            width: 40vmin;
+            height: auto;
+            max-width: 500px;
             animation: spaceFloat 12s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
         }
         
@@ -29,26 +37,28 @@
                 transform: translate(0, 0) rotate(0deg);
             }
             20% {
-                transform: translate(3vmin, -2vmin) rotate(2deg);
+                transform: translate(2vmin, -2vmin) rotate(2deg);
             }
             40% {
-                transform: translate(2vmin, -3vmin) rotate(-1deg);
+                transform: translate(2vmin, -2vmin) rotate(-1deg);
             }
             60% {
-                transform: translate(-1.5vmin, -2.5vmin) rotate(1deg);
+                transform: translate(-2vmin, -2vmin) rotate(1deg);
             }
             80% {
-                transform: translate(-2.5vmin, -1vmin) rotate(-2deg);
+                transform: translate(-2vmin, -1vmin) rotate(-2deg);
             }
             100% {
                 transform: translate(0, 0) rotate(0deg);
             }
         }
 
-        /* Adjust size for very small screens */
         @media (max-width: 480px) {
             .space-float {
                 width: 60vmin;
+            }
+            .container {
+                padding: 4vmin;
             }
         }
     </style>
